@@ -74,11 +74,12 @@ public class SpawnManager : MonoBehaviour
         {
             int x = Random.Range(-monsterSpawnDistance, monsterSpawnDistance + 1);
             int randVal = Random.Range(0, 2) == 1 ? 1 : -1;
-            Debug.Log("randVal: " + randVal);
             float z = Mathf.Sqrt(monsterSpawnDistance * monsterSpawnDistance - x * x) * randVal;
-            Debug.Log("x: " + x + " z: " + z);
 
+            Vector3 playerPosition = player.transform.position;
             Vector3 spawnPoint = new Vector3(x, 0, z);
+            spawnPoint += playerPosition;
+
             Instantiate(monsterToSpawn, spawnPoint, defaultQaut);
         }
     }

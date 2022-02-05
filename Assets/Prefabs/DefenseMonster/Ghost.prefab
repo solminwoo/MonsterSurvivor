@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  speed: 0.3
+  speed: 2
   movementSpeed: 100
   elapsedTime: 0
   target: {fileID: 0}

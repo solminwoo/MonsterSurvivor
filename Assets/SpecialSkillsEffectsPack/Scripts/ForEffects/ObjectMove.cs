@@ -29,7 +29,6 @@ public class ObjectMove : MonoBehaviour
             Destroy(gameObject);
 
         transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed * m_scalefactor);
-        Debug.Log(Vector3.forward * Time.deltaTime * MoveSpeed * m_scalefactor);
         if(AbleHit)
         { 
             RaycastHit hit;

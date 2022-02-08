@@ -9111,6 +9111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelUpUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1876831085249349690, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1876831085249349691, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9194,6 +9198,38 @@ PrefabInstance:
     - target: {fileID: 1876831085249349691, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086130152383, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086130152383, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086130152383, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086130152383, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086402699753, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086402699753, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086402699753, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876831086402699753, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -245
       objectReference: {fileID: 0}
     - target: {fileID: 1876831086402699758, guid: 39bf579b524bf9a40831d04564c7309c, type: 3}
       propertyPath: skillManager
@@ -9377,6 +9413,10 @@ PrefabInstance:
       propertyPath: tornado
       value: 
       objectReference: {fileID: -7973260786666944778, guid: 8bd23613bbc819c43a876eac4b362863, type: 3}
+    - target: {fileID: 6503783285324640849, guid: fc58768d10524044fb969056517f3fea, type: 3}
+      propertyPath: levelUpUI
+      value: 
+      objectReference: {fileID: 1978097912}
     - target: {fileID: 6503783285324640849, guid: fc58768d10524044fb969056517f3fea, type: 3}
       propertyPath: skillManager
       value: 

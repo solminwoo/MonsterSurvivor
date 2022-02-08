@@ -8,7 +8,7 @@ public class SkillTornado : NonTargetMutiDamage
     void Start()
     {
         skillRadius = 2f;
-        speed = 3f;
+        speed = .05f;
         skillDamage = 5;
         singleTargeting = false;
         trageting = false;

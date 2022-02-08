@@ -24477,7 +24477,7 @@ GameObject:
   - component: {fileID: 2623149922991704670}
   - component: {fileID: -7973260786666944778}
   m_Layer: 0
-  m_Name: Effect_18_SteelStorm
+  m_Name: Tornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24536,9 +24536,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: -7973260786666944778}
   autoAttackCoolDown: 4
-  currentAutoAttackCoolDown: 4
+  target: {fileID: 0}
   skillRadius: 2
-  speed: 3
+  speed: 0.05
   skillDamage: 5
   singleTargeting: 0
   trageting: 0

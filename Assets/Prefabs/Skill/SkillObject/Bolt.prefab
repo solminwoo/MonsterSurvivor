@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6485739223428099694}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aaa5cb770ff50fd45be824531ff122e5, type: 3}
   m_Name: 
@@ -67,13 +67,13 @@ MonoBehaviour:
   skillPrefab: {fileID: 3845472702278950152}
   autoAttackCoolDown: 0.75
   target: {fileID: 0}
-  dir: {x: 0, y: 0, z: 0}
   skillRadius: 1
   speed: 0.1
   skillDamage: 10
   singleTargeting: 1
   trageting: 1
-  targetSearchRadius: 10
+  targetSearchRadius: 15
+  projectileAmount: 2
 --- !u!1001 &7706983432891999196
 PrefabInstance:
   m_ObjectHideFlags: 0

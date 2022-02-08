@@ -12,6 +12,7 @@ public class Bolt : TargetSingleDamage
         singleTargeting = true;
         trageting = true;
         autoAttackCoolDown = 1f;
-        targetSearchRadius = 20f;
+        targetSearchRadius = 15f;
+        projectileAmount = 2;
     }
 }

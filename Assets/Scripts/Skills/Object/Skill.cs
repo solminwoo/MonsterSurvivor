@@ -24,7 +24,8 @@ public class Skill : MonoBehaviour
         }
         else{
             //TODO when target is destoryed make object to move smooth with the current dir
-            transform.Translate(transform.position.normalized * speed, Space.World);
+            //transform.Translate(transform.position.normalized * speed, Space.World);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
         //hit infront of the target
         if (Physics.OverlapSphere(transform.position, skillRadius).Length > 0)
@@ -32,6 +33,11 @@ public class Skill : MonoBehaviour
             damage();
             return;
         }
+    }
+
+    private void LateUpdate()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
     public virtual void damage() { }

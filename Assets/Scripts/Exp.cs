@@ -9,6 +9,9 @@ public class Exp : MonoBehaviour
     public Image expBar;
     public Player player;
     public TextMeshProUGUI textObject;
+    public SkillManager skillManager;
+    public Skill tornado;
+    public GameObject levelUpUI;
 
     public int level;
     public float currentExp;
@@ -30,11 +33,15 @@ public class Exp : MonoBehaviour
 
     public void levelUp()
     {
+        levelUpUI.SetActive(true);
         level++;
         currentExp -= maxExp;
         maxExp *= 1.5f;
         textObject.text = "Level: " + level;
         adjustExpBar();
+        skillManager.learnSkill(tornado);
+        //TODO Pause until select
+        
     }
 
     void adjustExpBar()

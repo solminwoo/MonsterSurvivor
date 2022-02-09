@@ -41,7 +41,6 @@ public class Exp : MonoBehaviour
         textObject.text = "Level: " + level;
         adjustExpBar();
         skillManager.learnSkill(tornado);
-        //TODO Pause until select
         
     }
 

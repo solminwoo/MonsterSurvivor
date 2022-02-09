@@ -54,7 +54,7 @@ public class Skill : MonoBehaviour
     void moveTowardsEnemy()
     {
         Vector3 dir = target.transform.position - transform.position;
-        transform.Translate(dir.normalized * speed, Space.World);
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         transform.LookAt(target.transform);
     }
 }

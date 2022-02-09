@@ -33,6 +33,7 @@ public class Exp : MonoBehaviour
 
     public void levelUp()
     {
+        Pause.instance.pauseGame();
         levelUpUI.SetActive(true);
         level++;
         currentExp -= maxExp;

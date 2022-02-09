@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     private IEnumerator coroutine;
+    public Transform firePoint;
 
     [Header("Learned Skills")]
     public Skill[] skills;
@@ -17,16 +18,25 @@ public class SkillManager : MonoBehaviour
     {
         skills = new Skill[5];
         skills[0] = skillPrefab1;
-        StartCoroutine(executeTheSkill(skillPrefab1));
+        StartCoroutine(executeTheSkillFromHead(skillPrefab1));
     }
 
     public void learnSkill(Skill skillToLearn)
     {
         skills[1] = skillToLearn;
-        StartCoroutine(executeTheSkill(skillToLearn));
+        StartCoroutine(executeTheSkillFromHead(skillToLearn));
     }
 
-    public IEnumerator executeTheSkill(Skill skillToExecute)
+    public IEnumerator executeTheSkillFromHead(Skill skillToExecute)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(skillToExecute.autoAttackCoolDown);
+            skillToExecute.instantiateSkill(firePoint);
+        }
+    }
+
+    public IEnumerator executeTheSkillFromGround(Skill skillToExecute)
     {
         while (true)
         {

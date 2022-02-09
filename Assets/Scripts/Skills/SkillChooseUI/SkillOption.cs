@@ -10,6 +10,7 @@ public class SkillOption : MonoBehaviour
     public void learnChosenSkill()
     {
         skillManager.learnSkill(skillPrefab);
+        Pause.instance.unPauseGame();
     }
 
 }

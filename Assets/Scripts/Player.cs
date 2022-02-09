@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform cam;
+    public Transform firePoint;
 
     public CharacterController controller;
     public float speed = 6f;

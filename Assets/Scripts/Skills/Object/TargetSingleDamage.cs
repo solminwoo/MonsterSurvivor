@@ -12,11 +12,6 @@ public class TargetSingleDamage : SingleDamage
         Skill instantiatedSkill = Instantiate(skillPrefab, executeFrom.position, Quaternion.identity);
     }
 
-    void findEnemy()
-    {
-        target = GameObject.FindGameObjectWithTag("Enemy") ? GameObject.FindGameObjectWithTag("Enemy").GetComponent<Monster>() : null;
-    }
-
     public void FindClosestEnemy(Transform executeFrom)
     {
         GameObject[] gos;
@@ -36,12 +31,5 @@ public class TargetSingleDamage : SingleDamage
             }
         }
         target = closest.GetComponent<Monster>();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = new Color(1, 1, 0, 0.75F);
-        Gizmos.DrawSphere(transform.position, targetSearchRadius);
-
     }
 }

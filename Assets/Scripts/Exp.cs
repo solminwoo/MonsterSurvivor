@@ -19,13 +19,13 @@ public class Exp : MonoBehaviour
 
     private void Update()
     {
-        if (currentExp / maxExp >= 1)
+        if (currentExp - maxExp >= 0)
         {
             levelUp();
         }
     }
 
-    public void gainExp(int x)
+    public void gainExp(float x)
     {
         currentExp += x;
         adjustExpBar();

@@ -7,8 +7,7 @@ public class ExpGem : MonoBehaviour
     public Exp exp;
     public Player player;
 
-    public int expAmount;
-    public float gainRadius;
+    public float expAmount;
 
     public void Start()
     {
@@ -18,15 +17,15 @@ public class ExpGem : MonoBehaviour
 
     private void Update()
     {
-        if(getDistanceToPlayer() < gainRadius)
+        if(getDistanceToPlayer() < player.gainRadius)
         {
             attractedToPlayer();
         }
 
         if(getDistanceToPlayer() < .1f)
         {
-            Destroy(gameObject);
             exp.gainExp(expAmount);
+            Destroy(gameObject);
         }
     }
 
@@ -35,15 +34,10 @@ public class ExpGem : MonoBehaviour
         float distance = Vector3.Distance(player.transform.position, transform.position);
         return distance;
     }
-    //private void OnDestroy()
-    //{
-    //    exp.gainExp(expAmount);
-    //}
 
     public void attractedToPlayer()
     {
         Vector3 dir = player.transform.position - transform.position;
-        //transform.position = Vector3.Lerp(transform.position, target.position, 1/movementSpeed);
         transform.Translate(dir.normalized * Time.deltaTime * 10f, Space.World);
     }
 }

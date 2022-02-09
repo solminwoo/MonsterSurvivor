@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     public float autoAttackCoolDown = 2.5f;
     public float currentAutoAttackCoolDown;
+    public float gainRadius = 10f;
 
     private void Start()
     {

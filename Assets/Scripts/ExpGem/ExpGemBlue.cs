@@ -8,6 +8,5 @@ public class ExpGemBlue : ExpGem
     {
         base.Start();
         expAmount = 2;
-        gainRadius = 5;
     }
 }

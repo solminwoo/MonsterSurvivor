@@ -1611,6 +1611,7 @@ MonoBehaviour:
   turnSmoothVelocity: 0
   autoAttackCoolDown: 1.5
   currentAutoAttackCoolDown: 0
+  gainRadius: 10
 --- !u!1 &454313797
 GameObject:
   m_ObjectHideFlags: 0

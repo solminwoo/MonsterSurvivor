@@ -8,7 +8,7 @@ public class SkillManager : MonoBehaviour
     public Transform firePoint;
 
     [Header("Learned Skills")]
-    public Skill[] skills;
+    public ArrayList skills;
 
 
     [Header("Skill1")]
@@ -16,14 +16,14 @@ public class SkillManager : MonoBehaviour
 
     public void Start()
     {
-        skills = new Skill[5];
-        skills[0] = skillPrefab1;
+        skills = new ArrayList();
+        skills.Add(skillPrefab1);
         StartCoroutine(executeTheSkillFromHead(skillPrefab1));
     }
 
     public void learnSkill(Skill skillToLearn)
     {
-        skills[1] = skillToLearn;
+        skills.Add(skillToLearn);
         StartCoroutine(executeTheSkillFromHead(skillToLearn));
     }
 

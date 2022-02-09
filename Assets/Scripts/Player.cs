@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
 
     public float turnSmoothTime = .1f;
     public float turnSmoothVelocity;
+    public float autoAttackCoolDown = 2.5f;
+    public float currentAutoAttackCoolDown;
+    public float gainRadius = 10f;
 
     private void Start()
     {

@@ -6,8 +6,6 @@ public class Monster : MonoBehaviour
 {
     public int hp = 10;
     public float speed = 2f;
-    public float elapsedTime;
-
 
     public Transform target;
 
@@ -18,7 +16,6 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
-        elapsedTime += Time.deltaTime;
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * Time.deltaTime * speed , Space.World);
         transform.LookAt(target);

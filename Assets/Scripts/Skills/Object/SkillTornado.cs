@@ -14,4 +14,6 @@ public class SkillTornado : NonTargetMutiDamage
         trageting = false;
         autoAttackCoolDown = 4f;
     }
+
+
 }

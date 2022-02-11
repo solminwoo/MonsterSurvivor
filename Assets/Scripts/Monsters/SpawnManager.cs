@@ -5,28 +5,24 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] m_monsterTypes;
-    private List<KeyValuePair<GameObject, int> > m_monsters = new List<KeyValuePair<GameObject, int> >();
     public int m_monsterSpawnDistance = 10;
 
     Dictionary<int, Dictionary<string, float>> m_monsterInfo = new Dictionary<int, Dictionary<string, float>>()
     {
         {1, new Dictionary<string, float>()
             {
-                {"lastSpawnTime", 4f},
-                {"spawnCooltime", 5f},
-                {"numberOfMonsterToSpawn", 1f}
+                {"spawnCooltime", 2f},
+                {"numberOfMonsterToSpawn", 2f}
             }
         },
         {2, new Dictionary<string, float>()
             {
-                {"lastSpawnTime", 0f},
                 {"spawnCooltime", 10f},
                 {"numberOfMonsterToSpawn", 1f}
             }
         },
         {3, new Dictionary<string, float>()
             {
-                {"lastSpawnTime", 0f},
                 {"spawnCooltime", 20f},
                 {"numberOfMonsterToSpawn", 1f}
             }
@@ -43,31 +39,10 @@ public class SpawnManager : MonoBehaviour
         foreach(GameObject monsterType in m_monsterTypes)
         {
             Monster monster = (Monster)monsterType.GetComponent(typeof(Monster));
-            
-            m_monsters.Add(new KeyValuePair<GameObject, int>(monsterType, monster.m_level));
-        }
-    }
 
-    private void Update()
-    {
-        // Debug.Log(m_monsters.Capacity);
-        foreach(KeyValuePair<GameObject, int> kvp in m_monsters)
-        {
-            GameObject go = kvp.Key;
-            int level = kvp.Value;
-            // Debug.Log(GameObject.ToString());
-            // Debug.Log(level);
+            int level = monster.m_level;
 
-            m_monsterInfo[level]["lastSpawnTime"] += Time.deltaTime;
-            // Debug.Log("spawnCooltime: " + m_monsterInfo[level]["spawnCooltime"].ToString());
-            // Debug.Log("lastSpawnTime: " + m_monsterInfo[level]["lastSponTime"].ToString());
-
-            if (m_monsterInfo[level]["lastSpawnTime"] > m_monsterInfo[level]["spawnCooltime"])
-            {
-                // Debug.Log(m_monsterInfo[level]["lastSponTime"]);
-                m_monsterInfo[level]["lastSpawnTime"] -= m_monsterInfo[level]["spawnCooltime"];
-                spawnMonster(go, (int)m_monsterInfo[level]["numberOfMonsterToSpawn"]);
-            }
+            StartCoroutine(spawnMonsters(monsterType, level));
         }
     }
 
@@ -82,11 +57,15 @@ public class SpawnManager : MonoBehaviour
         return spawnPoint + playerPosition;
     }
 
-    void spawnMonster(GameObject monsterType, int numberOfMonsterToSpawn)
+    public IEnumerator spawnMonsters(GameObject monsterType, int level)
     {
-        for (int i = 0; i < numberOfMonsterToSpawn; i++)
+        while (true)
         {
-            Instantiate(monsterType, getRandomPosition(), defaultQaut);
+            yield return new WaitForSeconds(m_monsterInfo[level]["spawnCooltime"]);
+            for (int i = 0; i < (int)m_monsterInfo[level]["numberOfMonsterToSpawn"]; i++)
+            {
+                Instantiate(monsterType, getRandomPosition(), defaultQaut);
+            }
         }
     }
 }

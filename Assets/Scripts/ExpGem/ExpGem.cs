@@ -11,6 +11,7 @@ public class ExpGem : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log("Start");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         exp = GameObject.FindObjectOfType<Exp>();
     }

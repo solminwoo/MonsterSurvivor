@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ExpGemGreen : ExpGem
 {
-    void Start()
+    ExpGemGreen()
     {
-        base.Start();
         expAmount = 10;
+
     }
 }

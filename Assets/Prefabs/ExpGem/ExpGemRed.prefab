@@ -121,5 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exp: {fileID: 0}
   player: {fileID: 0}
-  expAmount: 0
-  gainRadius: 0
+  expAmount: 50

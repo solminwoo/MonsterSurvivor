@@ -6,7 +6,7 @@ public class Shadow : Monster
 {
     Shadow()
     {
-        m_hp = 400;
+        m_hp = 10;
         m_speed = .2f;
         m_level = 2;
     }

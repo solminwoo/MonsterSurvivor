@@ -11,7 +11,7 @@ public class MultiDamage : Skill
         {
             if (collider.tag == "Enemy" || collider.tag == "Defense")
             {
-                Destroy(collider.gameObject);
+                collider.gameObject.GetComponent<Monster>().takeDemage(skillDamage);
             }
         }
     }

@@ -29,9 +29,9 @@ public class Monster : MonoBehaviour
     public void takeDemage(float demage)
     {
         m_hp -= demage;
-        // Debug.Log("demage: " + demage.ToString() + " hp: " + hp.ToString());
+        Debug.Log("demage: " + demage.ToString() + " hp: " + m_hp.ToString());
         
-        if (m_hp < 0)
+        if (m_hp <= 0)
         {
             Debug.Log("Death");
             dropExpGem();

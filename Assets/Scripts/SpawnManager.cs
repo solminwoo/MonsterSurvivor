@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
             {
                 {"lastSpawnTime", 4f},
                 {"spawnCooltime", 5f},
-                {"numberOfMonsterToSpawn", 5f}
+                {"numberOfMonsterToSpawn", 1f}
             }
         },
         {2, new Dictionary<string, float>()

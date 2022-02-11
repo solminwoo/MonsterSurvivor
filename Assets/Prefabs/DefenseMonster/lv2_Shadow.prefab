@@ -882,8 +882,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6081676522843133325}
   - component: {fileID: 6081676522835622509}
-  - component: {fileID: -6413316720389209140}
   - component: {fileID: 5463674588813853783}
+  - component: {fileID: -6413316720389209140}
   - component: {fileID: -9091347993320708143}
   m_Layer: 0
   m_Name: lv2_Shadow
@@ -942,19 +942,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &-6413316720389209140
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6081676522842900909}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!54 &5463674588813853783
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -971,6 +958,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &-6413316720389209140
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6081676522842900909}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &-9091347993320708143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb09a2c4a6504e3b9ad09954b2d29cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hp: 400
+  m_hp: 10
   m_speed: 0.2
   m_level: 2
   m_target_transform: {fileID: 0}

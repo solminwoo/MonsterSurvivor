@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4524045572468371744}
   - component: {fileID: 4524045572460584640}
   - component: {fileID: 3684252990479346869}
-  - component: {fileID: 7900672626085254966}
   - component: {fileID: 3339406968231863842}
+  - component: {fileID: 7900672626085254966}
   m_Layer: 0
   m_Name: lv1_Ghost
   m_TagString: Enemy
@@ -87,22 +87,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7900672626085254966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4524045572467879168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c7b9e87ba1840f797f3353297a65bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_hp: 10
-  m_speed: 0.2
-  m_level: 1
-  m_target_transform: {fileID: 0}
 --- !u!135 &3339406968231863842
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116,6 +100,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &7900672626085254966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524045572467879168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c7b9e87ba1840f797f3353297a65bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_hp: 5
+  m_speed: 0.2
+  m_level: 1
+  m_target_transform: {fileID: 0}
 --- !u!1 &4524045572467879170
 GameObject:
   m_ObjectHideFlags: 0

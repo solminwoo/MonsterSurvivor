@@ -4,80 +4,89 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject monsterToSpawn;
-    public int numberOfMonsterToSpawn = 20;
-    public int monsterSpawnDistance = 20;
+    public GameObject[] m_monsterTypes;
+    private List<KeyValuePair<GameObject, int> > m_monsters = new List<KeyValuePair<GameObject, int> >();
+    public int m_monsterSpawnDistance = 10;
 
+    Dictionary<int, Dictionary<string, float>> m_monsterInfo = new Dictionary<int, Dictionary<string, float>>()
+    {
+        {1, new Dictionary<string, float>()
+            {
+                {"lastSpawnTime", 4f},
+                {"spawnCooltime", 5f},
+                {"numberOfMonsterToSpawn", 5f}
+            }
+        },
+        {2, new Dictionary<string, float>()
+            {
+                {"lastSpawnTime", 0f},
+                {"spawnCooltime", 10f},
+                {"numberOfMonsterToSpawn", 1f}
+            }
+        },
+        {3, new Dictionary<string, float>()
+            {
+                {"lastSpawnTime", 0f},
+                {"spawnCooltime", 20f},
+                {"numberOfMonsterToSpawn", 1f}
+            }
+        }
+
+    };
     public Quaternion defaultQaut = new Quaternion(0,0,0,0);
 
-
-    //public GameObject[] grounds;
-    //public int currentGroundIndex;
-    //public Ground[] spawningGrounds;
-
-    //public Ground spawningGroundN;
-    //public Ground spawningGroundS;
-    //public Ground spawningGroundE;
-    //public Ground spawningGroundW;
-
-    public float spawnCountDown = 4f;
-    public float currentCountDown;
-
     public Player player;
-
-    //private void Awake()
-    //{
-    //    grounds = GameObject.FindGameObjectsWithTag("Ground");
-    //    currentGroundIndex = 4;
-    //    spawningGroundN = grounds[currentGroundIndex - 3].GetComponent<Ground>();
-    //    spawningGroundS = grounds[currentGroundIndex + 3].GetComponent<Ground>();
-    //    spawningGroundE = grounds[currentGroundIndex + 1].GetComponent<Ground>();
-    //    spawningGroundW = grounds[currentGroundIndex - 1].GetComponent<Ground>();
-    //    spawningGrounds = new Ground[] { spawningGroundN, spawningGroundS, spawningGroundE, spawningGroundW };
-    //}
-
-    //private void Start()
-    //{
-    //}
-
-    //private void Update()
-    //{
-    //    currentCountDown += Time.deltaTime;
-    //    if (currentCountDown > spawnCountDown)
-    //    {
-    //        foreach(Ground spwaningGround in spawningGrounds)
-    //        {
-    //            spwaningGround.spawnEnemy();
-    //        }
-    //        currentCountDown = 0;
-    //    }
-    //}
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        foreach(GameObject monsterType in m_monsterTypes)
+        {
+            Monster monster = (Monster)monsterType.GetComponent(typeof(Monster));
+            
+            m_monsters.Add(new KeyValuePair<GameObject, int>(monsterType, monster.m_level));
+        }
     }
 
     private void Update()
     {
-        currentCountDown += Time.deltaTime;
-        if (currentCountDown > spawnCountDown)
+        // Debug.Log(m_monsters.Capacity);
+        foreach(KeyValuePair<GameObject, int> kvp in m_monsters)
         {
-            spawnMonsterAtRandPosition();
-            currentCountDown = 0;
+            GameObject go = kvp.Key;
+            int level = kvp.Value;
+            // Debug.Log(GameObject.ToString());
+            // Debug.Log(level);
+
+            m_monsterInfo[level]["lastSpawnTime"] += Time.deltaTime;
+            // Debug.Log("spawnCooltime: " + m_monsterInfo[level]["spawnCooltime"].ToString());
+            // Debug.Log("lastSpawnTime: " + m_monsterInfo[level]["lastSponTime"].ToString());
+
+            if (m_monsterInfo[level]["lastSpawnTime"] > m_monsterInfo[level]["spawnCooltime"])
+            {
+                // Debug.Log(m_monsterInfo[level]["lastSponTime"]);
+                m_monsterInfo[level]["lastSpawnTime"] -= m_monsterInfo[level]["spawnCooltime"];
+                spawnMonster(go, (int)m_monsterInfo[level]["numberOfMonsterToSpawn"]);
+            }
         }
     }
 
-    void spawnMonsterAtRandPosition()
+    private Vector3 getRandomPosition()
+    {
+        int x = Random.Range(-m_monsterSpawnDistance, m_monsterSpawnDistance + 1);
+        int randVal = Random.Range(0, 2) == 1 ? 1 : -1;
+        float z = Mathf.Sqrt(m_monsterSpawnDistance * m_monsterSpawnDistance - x * x) * randVal;
+
+        Vector3 playerPosition = player.transform.position;
+        Vector3 spawnPoint = new Vector3(x, 0, z);
+        return spawnPoint + playerPosition;
+    }
+
+    void spawnMonster(GameObject monsterType, int numberOfMonsterToSpawn)
     {
         for (int i = 0; i < numberOfMonsterToSpawn; i++)
         {
-            int x = Random.Range(-monsterSpawnDistance, monsterSpawnDistance + 1);
-            int randVal = Random.Range(0, 2) == 1 ? 1 : -1;
-            float z = Mathf.Sqrt(monsterSpawnDistance * monsterSpawnDistance - x * x) * randVal;
-
-            Vector3 spawnPoint = new Vector3(x, 0, z);
-            Instantiate(monsterToSpawn, spawnPoint, defaultQaut);
+            Instantiate(monsterType, getRandomPosition(), defaultQaut);
         }
     }
 }

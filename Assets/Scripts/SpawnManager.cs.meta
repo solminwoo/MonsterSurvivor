@@ -3,7 +3,9 @@ guid: ac8e6b87dbd33b140ad8d2f0b0fa5086
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - monsterToSpawn: {fileID: 4524045572467879168, guid: a7b0a35336fa7a847bff615b48c5d99b, type: 3}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    public GameObject m_expGem;
+
     public float m_hp;
     public float m_speed;
     public int m_level;
@@ -37,9 +39,7 @@ public class Monster : MonoBehaviour
     //TODO: Under Construction
     private void dropExpGem()
     {
-        // Debug.Log("dropExpGem()");
-        //randomly drop a gem.
-        // As level goes higher, the posibility of droping better gem increase
+        Instantiate(m_expGem, transform.position, new Quaternion(0,0,0,0));
         return;
     }
 }

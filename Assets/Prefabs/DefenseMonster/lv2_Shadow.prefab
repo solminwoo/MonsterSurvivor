@@ -983,6 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb09a2c4a6504e3b9ad09954b2d29cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_expGem: {fileID: 3332218979797043570, guid: 2eae783d3291f234183b44d2e475de98, type: 3}
   m_hp: 10
   m_speed: 0.2
   m_level: 2

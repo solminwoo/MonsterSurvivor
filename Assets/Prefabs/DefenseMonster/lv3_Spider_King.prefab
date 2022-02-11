@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357183c9d3eaf40ec949e61e74bc9028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_expGem: {fileID: 3839024546919251450, guid: f72541850138eec4f9fedf37baae26b7, type: 3}
   m_hp: 20
   m_speed: 0.3
   m_level: 3

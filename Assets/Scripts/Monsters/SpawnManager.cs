@@ -27,7 +27,6 @@ public class SpawnManager : MonoBehaviour
                 {"numberOfMonsterToSpawn", 1f}
             }
         }
-
     };
     public Quaternion defaultQaut = new Quaternion(0,0,0,0);
 

@@ -13,21 +13,21 @@ public class SpawnManager : MonoBehaviour
         {1, new Dictionary<string, float>()
             {
                 {"lastSpawnTime", 4f},
-                {"spawnCooltime", 4f},
-                {"numberOfMonsterToSpawn", 20f}
+                {"spawnCooltime", 5f},
+                {"numberOfMonsterToSpawn", 5f}
             }
         },
         {2, new Dictionary<string, float>()
             {
                 {"lastSpawnTime", 0f},
-                {"spawnCooltime", 8f},
+                {"spawnCooltime", 10f},
                 {"numberOfMonsterToSpawn", 1f}
             }
         },
         {3, new Dictionary<string, float>()
             {
                 {"lastSpawnTime", 0f},
-                {"spawnCooltime", 10f},
+                {"spawnCooltime", 20f},
                 {"numberOfMonsterToSpawn", 1f}
             }
         }
@@ -77,7 +77,9 @@ public class SpawnManager : MonoBehaviour
         int randVal = Random.Range(0, 2) == 1 ? 1 : -1;
         float z = Mathf.Sqrt(m_monsterSpawnDistance * m_monsterSpawnDistance - x * x) * randVal;
 
-        return new Vector3(x, 0, z);
+        Vector3 playerPosition = player.transform.position;
+        Vector3 spawnPoint = new Vector3(x, 0, z);
+        return spawnPoint + playerPosition;
     }
 
     void spawnMonster(GameObject monsterType, int numberOfMonsterToSpawn)

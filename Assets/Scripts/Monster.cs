@@ -5,9 +5,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     public int hp = 10;
-    public float speed = .3f;
-    public float movementSpeed = 10f;
-    public float elapsedTime;
+    public float speed = 2f;
 
     public Transform target;
 
@@ -18,10 +16,8 @@ public class Monster : MonoBehaviour
 
     private void Update()
     {
-        elapsedTime += Time.deltaTime;
         Vector3 dir = target.position - transform.position;
-        //transform.position = Vector3.Lerp(transform.position, target.position, 1/movementSpeed);
-        transform.Translate(dir * Time.deltaTime * speed, Space.World);
+        transform.Translate(dir.normalized * Time.deltaTime * speed , Space.World);
         transform.LookAt(target);
     }
 }

@@ -24475,9 +24475,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2623149922991704669}
   - component: {fileID: 2623149922991704670}
-  - component: {fileID: 4553929794308716889}
+  - component: {fileID: -7973260786666944778}
   m_Layer: 0
-  m_Name: Effect_18_SteelStorm
+  m_Name: Tornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24522,7 +24522,7 @@ MonoBehaviour:
   m_hitObject: {fileID: 0}
   MaxLength: 0
   DestroyTime2: 0
---- !u!114 &4553929794308716889
+--- !u!114 &-7973260786666944778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24531,13 +24531,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2623149922991704668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe40b2c8817be94091bd4f2bf29c40a, type: 3}
+  m_Script: {fileID: 11500000, guid: 06ed0aa2bdab821439de5faef71494b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrefab: {fileID: -7973260786666944778}
+  autoAttackCoolDown: 4
+  target: {fileID: 0}
   skillRadius: 2
-  speed: 30
-  skillDamage: 0
-  object1: {fileID: 4524045572467879168, guid: a7b0a35336fa7a847bff615b48c5d99b, type: 3}
+  speed: 0.05
+  skillDamage: 5
+  singleTargeting: 0
+  trageting: 0
 --- !u!1 &6328857167560139517
 GameObject:
   m_ObjectHideFlags: 0

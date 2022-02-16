@@ -12,7 +12,6 @@ public class SingleDamage : Skill
             if (collider.tag == "Enemy" || collider.tag == "Defense")
             {
                 collider.gameObject.GetComponent<Monster>().takeDemage(skillDamage);
-                // Destroy(collider.gameObject);
                 Destroy(gameObject);
                 break;
             }

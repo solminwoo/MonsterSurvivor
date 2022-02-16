@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    public GameObject m_expGem;
+    private GameObject m_expGem;
 
-    public float m_hp;
-    public float m_speed;
+    private float m_hp;
+    private float m_speed;
     public int m_level;
 
-    public Transform m_target_transform;
+    private Transform m_target_transform;
 
     public void Start()
     {
         m_target_transform = GameObject.FindGameObjectWithTag("Player").transform;
+        Stat stat = MonsterStats.Instance.getStatByLevel(m_level);
+        m_hp = stat.hp;
+        m_speed = stat.speed;
+
+        m_expGem = Resources.Load("ExpGems/" + stat.expGemType, typeof(GameObject)) as GameObject;
+
     }
     public void Update()
     {
@@ -26,11 +32,9 @@ public class Monster : MonoBehaviour
     public void takeDemage(float demage)
     {
         m_hp -= demage;
-        // Debug.Log("demage: " + demage.ToString() + " hp: " + m_hp.ToString());
         
         if (m_hp <= 0)
         {
-            // Debug.Log("Death");
             dropExpGem();
             Destroy(gameObject);
         }

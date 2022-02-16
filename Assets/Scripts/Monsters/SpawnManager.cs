@@ -1,47 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
+using System.IO;
+using System.Linq;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] m_monsterTypes;
     public int m_monsterSpawnDistance = 10;
 
-    Dictionary<int, Dictionary<string, float>> m_monsterInfo = new Dictionary<int, Dictionary<string, float>>()
-    {
-        {1, new Dictionary<string, float>()
-            {
-                {"spawnCooltime", 2f},
-                {"numberOfMonsterToSpawn", 2f}
-            }
-        },
-        {2, new Dictionary<string, float>()
-            {
-                {"spawnCooltime", 10f},
-                {"numberOfMonsterToSpawn", 1f}
-            }
-        },
-        {3, new Dictionary<string, float>()
-            {
-                {"spawnCooltime", 20f},
-                {"numberOfMonsterToSpawn", 1f}
-            }
-        }
-    };
-    public Quaternion defaultQaut = new Quaternion(0,0,0,0);
-
-    public Player player;
-
+    private Player player;
+    private MonsterStats m_monsterStats;
+    
     private void Start()
     {
+        m_monsterStats = MonsterStats.Instance;
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        foreach(GameObject monsterType in m_monsterTypes)
+
+        var monsterObjects = Resources.LoadAll("Monsters").Cast<GameObject>();
+        foreach(GameObject monsterObject in monsterObjects)
         {
-            Monster monster = (Monster)monsterType.GetComponent(typeof(Monster));
+            Monster monster = (Monster)monsterObject.GetComponent(typeof(Monster));
 
             int level = monster.m_level;
 
-            StartCoroutine(spawnMonsters(monsterType, level));
+            StartCoroutine(spawnMonsters(monsterObject, level));
         }
     }
 
@@ -58,12 +42,13 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator spawnMonsters(GameObject monsterType, int level)
     {
+        Stat stat = m_monsterStats.getStatByLevel(level);
         while (true)
         {
-            yield return new WaitForSeconds(m_monsterInfo[level]["spawnCooltime"]);
-            for (int i = 0; i < (int)m_monsterInfo[level]["numberOfMonsterToSpawn"]; i++)
+            yield return new WaitForSeconds(stat.spawnCoolTime);
+            for (int i = 0; i < stat.numMonstersToSpawn; i++)
             {
-                Instantiate(monsterType, getRandomPosition(), defaultQaut);
+                Instantiate(monsterType, getRandomPosition(), transform.rotation);
             }
         }
     }

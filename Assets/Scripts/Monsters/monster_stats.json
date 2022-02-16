@@ -1,0 +1,30 @@
+{
+  "stats":
+  [
+    {
+      "level": 1,
+      "hp": 5,
+      "speed": 0.1,
+      "spawnCoolTime": 2,
+      "numMonstersToSpawn": 2,
+      "expGemType": "ExpGemBlue"
+    },
+    {
+      "level": 2,
+      "hp": 10,
+      "speed": 0.1,
+      "spawnCoolTime": 10,
+      "numMonstersToSpawn": 1,
+      "expGemType": "ExpGemGreen"
+    },
+    {
+      "level": 3,
+      "hp": 20,
+      "speed": 0.2,
+      "spawnCoolTime": 20,
+      "numMonstersToSpawn": 1,
+      "expGemType": "ExpGemRed"
+    }
+  ]
+}
+    
